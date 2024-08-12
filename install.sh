@@ -27,6 +27,16 @@ is_database_configured() {
   fi
 }
 
+# Function to check if the virtual environment exists
+is_venv_exists() {
+  if [ -d ".env" ]; then
+    echo "Python virtual environment already exists."
+    return 0
+  else
+    return 1
+  fi
+}
+
 # Function to check if the configuration file exists
 is_config_exists() {
   config_file="config.cfg"
@@ -89,6 +99,20 @@ install_dependencies() {
   if [[ $? -ne 0 ]]; then
     echo "Failed to install dependencies. Exiting."
     exit 1
+  fi
+
+  # Create a Python virtual environment if it doesn't exist
+  if ! is_venv_exists; then
+    python3 -m venv .env
+    source .env/bin/activate
+
+    # Install python3 libraries within the virtual environment
+    pip3 install mysql-connector-python
+    deactivate
+
+    echo "Dependencies installation completed."
+  else
+    echo "Skipping virtual environment setup as it already exists."
   fi
 }
 

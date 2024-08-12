@@ -25,8 +25,7 @@ Using Bash:
 ```sh
 git clone https://github.com/LaswitchTech/pythonNetworkMonitor
 cd pythonNetworkMonitor
-chmod +x *.sh
-chmod +x *.py
+chmod +x *.{sh,py}
 ./install.sh
 ```
 

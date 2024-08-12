@@ -136,8 +136,11 @@ def create_service():
     After=network.target
 
     [Service]
+    Type=simple
     WorkingDirectory={script_dir}
-    ExecStart=/usr/bin/python3 {script_dir}/monitor.py
+    ExecStart=/bin/bash -c 'source {venv_path} && python3 {script_dir}'
+    Restart=on-failure
+    User={os.getlogin()}
 
     [Install]
     WantedBy=multi-user.target
