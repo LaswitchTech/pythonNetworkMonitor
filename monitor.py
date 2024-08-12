@@ -227,7 +227,7 @@ def add_host(new_host):
         if args.verbose:
             print(f"Host {new_host} is already in the list.")
     else:
-        hosts[new_host] = {"recipient": default_config['recipient']}
+        hosts[new_host] = []
         with open(hosts_file, 'w') as file:
             json.dump(hosts, file, indent=4)
         if args.verbose:
