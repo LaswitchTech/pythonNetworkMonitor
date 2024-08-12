@@ -227,7 +227,7 @@ def add_host(new_host):
         if args.verbose:
             print(f"Host {new_host} is already in the list.")
     else:
-        hosts = []
+        hosts.append(new_host)
         with open(hosts_file, 'w') as file:
             json.dump(hosts, file, indent=4)
         if args.verbose:
@@ -236,7 +236,7 @@ def add_host(new_host):
 def remove_host(host_to_remove):
     hosts = load_hosts()
     if host_to_remove in hosts:
-        del hosts[host_to_remove]
+        hosts.remove(host_to_remove)
         with open(hosts_file, 'w') as file:
             json.dump(hosts, file, indent=4)
         if args.verbose:
