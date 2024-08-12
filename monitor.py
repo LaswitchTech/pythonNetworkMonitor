@@ -317,7 +317,7 @@ if __name__ == "__main__":
                             if args.verbose:
                                 print(f"Host {host} is up with latency {latency} ms")
                             if not args.console:
-                                log_data(host, latency)
+                                log_data(host, latency, config)
                         else:
                             if args.verbose or not args.console:
                                 print(f"Host {host} is down!")
