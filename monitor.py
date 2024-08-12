@@ -22,7 +22,7 @@ from mysql.connector import Error
 # Default configuration
 default_config = {
     "db_host": "localhost",
-    "db_name": "sensor_data",
+    "db_name": "network_data",
     "db_username": "sensor_user",
     "db_password": "",
     "frequency": 60,
