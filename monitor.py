@@ -322,7 +322,7 @@ if __name__ == "__main__":
                             if args.verbose or not args.console:
                                 print(f"Host {host} is down!")
                             if not args.console:
-                                send_email(f"Host {host} is down!", f"The host {host} is not responding to ICMP requests.", hosts[host]['recipient'])
+                                send_email(f"Host {host} is down!", f"The host {host} is not responding to ICMP requests.", config)
 
                 if args.once:
                     process_monitor()
